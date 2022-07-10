@@ -161,24 +161,64 @@ be the returned value of a function! So you can just call a function as array va
 GOOD LUCK 😀
 */
 
-calcTip = function (billValue) {
-  let tip = 0;
-  if (billValue >= 50 && billValue <= 300) {
-    tip = (billValue * 15) / 100;
-  } else {
-    tip = (billValue * 20) / 100;
-  }
-  return tip;
+// calcTip = function (billValue) {
+//   let tip = 0;
+//   if (billValue >= 50 && billValue <= 300) {
+//     tip = billValue * 0.15;
+//   } else {
+//     tip = billValue * 0.2;
+//   }
+//   return tip;
+// };
+
+// console.log(calcTip(100));
+
+// const bill = [125, 555, 44];
+// const tip = [calcTip(bill[0]), calcTip(bill[1], calcTip(bill[2]))];
+// console.log(tip);
+// const total = [
+//   calcTip(bill[0] + bill[0]),
+//   calcTip(bill[1] + bill[1]),
+//   calcTip(bill[2] + bill[2]),
+// ];
+// console.log(total);
+
+///////////////////////////////////////
+// Dot vs. Bracket Notation
+const jonas = {
+  firstName: "Jonas",
+  lastName: "Schmedtmann",
+  age: 2037 - 1991,
+  job: "teacher",
+  friends: ["Michael", "Peter", "Steven"],
 };
+console.log(jonas);
 
-console.log(calcTip(100));
+console.log(jonas.lastName);
+console.log(jonas["lastName"]);
 
-const bill = [125, 555, 44];
-const tip = [calcTip(bill[0]), calcTip(bill[1], calcTip(bill[2]))];
-console.log(tip);
-const total = [
-  calcTip(bill[0] + bill[0]),
-  calcTip(bill[1] + bill[1]),
-  calcTip(bill[2] + bill[2]),
-];
-console.log(total);
+const nameKey = "Name";
+console.log(jonas["first" + nameKey]);
+console.log(jonas["last" + nameKey]);
+
+// console.log(jonas.'last' + nameKey)
+
+const interestedIn = prompt(
+  "What do you want to know about Jonas? Choose between firstName, lastName, age, job, and friends"
+);
+
+if (jonas[interestedIn]) {
+  console.log(jonas[interestedIn]);
+} else {
+  console.log(
+    "Wrong request! Choose between firstName, lastName, age, job, and friends"
+  );
+}
+
+jonas.location = "Portugal";
+jonas["twitter"] = "@jonasschmedtman";
+console.log(jonas);
+
+console.log(
+  ` ${jonas.firstName} has ${jonas.friends.length} friends and his best friend is called ${jonas.friends[0]}`
+);
